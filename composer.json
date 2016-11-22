@@ -1,0 +1,30 @@
+{
+    "name": "concept-core/laraslim",
+    "description": "Slim base application with some extra packages installed.",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Wouter van Marrum",
+            "email": "w.van.marrum@molenbergmedia.nl",
+            "homepage": "http://concept-core.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.0",
+        "slim/flash": "^0.1.0",
+        "monolog/monolog": "^1.13",
+        "illuminate/database": "^5.3",
+        "slim/csrf": "^0.7.0",
+        "respect/validation": "^1.1",
+        "illuminate/pagination": "^5.3",
+        "brandonwamboldt/utilphp": "^1.1",
+        "zeuxisoo/slim-whoops": "^0.5.1"
+    }
+}
