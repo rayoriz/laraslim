@@ -10,20 +10,18 @@ require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 // Instantiate the app
-$settings = require __DIR__ . '/../app/settings.php';
-$app = new \Slim\App($settings);
+$config = require __DIR__ . '/../base/config/config.php';
+$baseConfig = require __DIR__ . '/../base/config/base.config.php';
+$settings = array_merge_recursive($config, $baseConfig);
 
-// Set up the helper file
-require __DIR__ . "/../app/src/Helpers/Helper.php";
+// Keep the validation stuff in here,
+\Respect\Validation\Validator::with('App\\Validation\\Rules\\');
 
-// Set up dependencies
-require __DIR__ . '/../app/dependencies.php';
-
-// Register middleware
-require __DIR__ . '/../app/middleware.php';
+$laraslim = new \ConceptCore\LaraSlim\AppStarter($settings);
+$laraslim->startUp();
 
 // Register routes
-require __DIR__ . '/../app/routes.php';
+require __DIR__ . '/../routes/web.php';
 
 // Run!
-$app->run();
+$laraslim->run();

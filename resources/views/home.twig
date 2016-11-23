@@ -1,35 +1,23 @@
 {% extends "_layout.twig" %}
 
-{% block title %}Duivensport{% endblock %}
+{% block title %}LaraSlim{% endblock %}
+
+{% block css %}
+    <style type="text/css">
+        .starter-template {
+          padding: 40px 15px;
+          text-align: center;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
-            <form action="{{ base_url() }}" method="post">
-                {{ csrf.field | raw}}
-                <div class="form-group">
-                    <label for="ordernr">Ordernummer : </label>
-                    <input type="text" class="form-control" id="ordernr" placeholder="Voer hier het ordernummer in">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+    <div class="container">
+        <div class="starter-template">
+            <h1>LaraSlim</h1>
+            <p class="lead">A microframework with pre-installed enhancements.</p>
         </div>
     </div>
-{% endblock %}
 
-{% block js %}
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $('#form').submit(function()
-            {
-
-                if ( $('#ordernr').val().length === 0 ) {
-                    alert('Het order nummer is nog niet ingevuld');
-                    return false;
-                }
-            });
-        });
-    </script>
 {% endblock %}
