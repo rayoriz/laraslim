@@ -29,46 +29,14 @@ class AppStarter extends App
     public function startUp()
     {
         // Run a few functions so we can startup the application.
-        $this->isWhoopsEnabled()
-            ->isCsrfEnabled()
+        $this->isCsrfEnabled()
+            ->loadMiddleWare()
             ->isAuthEnabled()
             ->isFlashEnabled()
             ->setUpViewEngine()
             ->setUpValidation()
             ->setUpDatabase()
-            ->isLogEnabled()
-            ->loadMiddleWare();
-    }
-
-    /**
-     * Check if whoops is enabled in the base config.
-     * @return object
-     */
-    private function isWhoopsEnabled()
-    {
-        if ($this->baseConfig['whoops'] == true) {
-            if ($this->container->get('settings')['debug'] === false) {
-                $this->container['errorHandler'] = function ($c) {
-                    return function ($request, $response, $exception) use ($c) {
-                        $data = [
-                            'code' => $exception->getCode(),
-                            'message' => $exception->getMessage(),
-                            'file' => $exception->getFile(),
-                            'line' => $exception->getLine(),
-                            'trace' => explode("\n", $exception->getTraceAsString()),
-                        ];
-                        return $c->get('response')->withStatus(500)
-                                ->withHeader('Content-Type', 'application/json')
-                                ->write(json_encode($data));
-                    };
-                };
-            }else{
-                $this->add(new WhoopsMiddleware);
-            }
-
-        }
-
-        return $this;
+            ->isLogEnabled();
     }
 
     /**
@@ -195,6 +163,7 @@ class AppStarter extends App
 
     /**
      * Walk through the middleware config file and load the active middlewares in.
+     * We also check if the whoops middleware is enabled.
      * @return object
      */
     private function loadMiddleWare()
@@ -202,6 +171,11 @@ class AppStarter extends App
         $m = require __DIR__ . "/config/middleware.config.php";
 
         foreach ($m['active'] as $middleware) {
+            if ($this->baseConfig['whoops'] == false) {
+                if ($middleware == "\Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware") {
+                    continue;
+                }
+            }
             $this->add(new $middleware($this->container));
         }
 

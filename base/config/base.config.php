@@ -4,12 +4,6 @@ return [
         'base' => [
 
             'whoops' => true,
-            'whoopsConf' => [
-                // Whoops
-                'debug' => true, // On/Off whoops error
-                'whoops.editor' => 'sublime', // Support click to open editor
-            ],
-
             'csrf' => true,
             'auth' => true,
             'flash' => true,

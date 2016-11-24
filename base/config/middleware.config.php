@@ -3,6 +3,7 @@
 return [
     // Place here middleware's that should be active.
     'active' => [
+        '\Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware',
         '\App\Middleware\Validation\ErrorsMiddleware',
         '\App\Middleware\Validation\OldInputMiddleware',
         '\App\Middleware\Views\CsrfMiddleware',
