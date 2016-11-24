@@ -10,6 +10,7 @@ LaraSlim is a slim 3 application that works out of the box with some extra enhan
 ## How to install
 
 To install **LaraSlim** you need to run the following command in your projects folder.
+
 `$ composer create-project --no-interaction --stability=dev akrabat/slim3-skeleton my-app`
 
 This will create a new folder called `my-app` in your projects folder.
