@@ -1,9 +1,6 @@
 <?php
 
-$laraslim->get('/', function($request, $response, $args) {
-    return $this->router->pathFor('hello');
-});
-// $laraslim->get('/', '\App\Controllers\HomeController:index')->setName('home');
+$laraslim->get('/', '\App\Controllers\HomeController:index')->setName('home');
 
 // Auth routes.
 $laraslim->get('/login', '\App\Controllers\Auth\AuthController:getSignIn')->setName('auth.signin');
