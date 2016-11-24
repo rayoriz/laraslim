@@ -1,4 +1,6 @@
 # LaraSlim
+[![Latest Stable Version](https://poser.pugx.org/concept-core/laraslim/v/stable)](https://packagist.org/packages/concept-core/laraslim) [![License](https://poser.pugx.org/concept-core/laraslim/license)](https://packagist.org/packages/concept-core/laraslim) [![Total Downloads](https://poser.pugx.org/concept-core/laraslim/downloads)](https://packagist.org/packages/concept-core/laraslim) [![composer.lock](https://poser.pugx.org/concept-core/laraslim/composerlock)](https://packagist.org/packages/concept-core/laraslim)
+
 
 LaraSlim is a slim 3 application that works out of the box with some extra enhancements.
 - Eloquent
