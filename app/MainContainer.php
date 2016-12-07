@@ -19,4 +19,9 @@ class MainContainer
             return $this->container->{$property};
         }
     }
+    
+    public function getBaseUrl()
+    {
+        return $this->container->request->getUri()->getBaseUrl();
+    }
 }
