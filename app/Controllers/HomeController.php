@@ -15,7 +15,6 @@ class HomeController extends MainContainer
      */
     public function index($req, $res, $args)
     {
-
         $this->view->render($res, 'home.twig');
         return $res;
     }

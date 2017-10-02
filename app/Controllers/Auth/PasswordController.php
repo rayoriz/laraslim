@@ -18,7 +18,6 @@ class PasswordController extends MainContainer
      */
     public function getChangePassword($req, $res, $args)
     {
-        
         $this->view->render($res, 'auth/password/change-password.twig');
         return $res;
     }

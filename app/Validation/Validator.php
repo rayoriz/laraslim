@@ -21,7 +21,6 @@ class Validator extends MainContainer
      */
     public function validate($request, array $rules)
     {    
-
         foreach ($rules as $field => $rule) {
             try {
                 $rule->setName(ucfirst($field))->assert($request->getParam($field));
@@ -44,11 +43,9 @@ class Validator extends MainContainer
      * @return mixed          return the current page.
      */
     public function failed()
-    {
-        
+    {       
         if (!empty($this->errors)) {
             return $this->errors;
-        } else {
-        }
+        } 
     }
 }

@@ -18,10 +18,7 @@ class AuthController extends MainContainer
      */
     public function getSignIn($req, $res)
     {
-    
-        
         $this->view->render($res, 'auth/login.twig');
-
         return $res;
     }
 
@@ -59,8 +56,6 @@ class AuthController extends MainContainer
      */
     public function getSignUp($req, $res)
     {
-    
-        
         $this->view->render($res, 'auth/signup.twig');
         return $res;
     }
