@@ -16,7 +16,6 @@ class HomeController extends MainContainer
     public function index($req, $res, $args)
     {
 
-        // $this->logger->info('show the home page');
         $this->view->render($res, 'home.twig');
         return $res;
     }

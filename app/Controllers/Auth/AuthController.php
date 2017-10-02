@@ -19,7 +19,6 @@ class AuthController extends MainContainer
     public function getSignIn($req, $res)
     {
     
-        // $this->logger->info("Display the login page");
         
         $this->view->render($res, 'auth/login.twig');
 
@@ -36,7 +35,6 @@ class AuthController extends MainContainer
      */
     public function postSignIn($req, $res, $args)
     {
-        // $this->logger->info("Sign the user in with email : {$req->getParam('email')}");
 
         $auth = $this->auth->attempt(
             $req->getParam('email'),
@@ -62,7 +60,6 @@ class AuthController extends MainContainer
     public function getSignUp($req, $res)
     {
     
-        // $this->logger->info("Display the sign up page");
         
         $this->view->render($res, 'auth/signup.twig');
         return $res;
@@ -79,7 +76,6 @@ class AuthController extends MainContainer
      */
     public function postSignUp($req, $res, $args)
     {
-        // $this->logger->info("Create a new user with email: {$req->getParam('email')}");
 
         $validation = $this->validator->validate($req, [
             'email' => v::noWhitespace()->notEmpty()->email()->emailAvailable(),
@@ -117,7 +113,6 @@ class AuthController extends MainContainer
      */
     public function getsignOut($req, $res, $args)
     {
-        // $this->logger->info("Signing user out with email : {$this->auth->user()->email}");
         $this->flash->addMessage('success', 'Logged out succesfully');
         $this->auth->logout();
         return $res->withRedirect($this->router->pathFor('home'));
