@@ -21,7 +21,7 @@ class Validator extends MainContainer
      */
     public function validate($request, array $rules)
     {    
-        $this->logger->info("Starting the validation for the form field");
+        // $this->logger->info("Starting the validation for the form field");
 
         foreach ($rules as $field => $rule) {
             try {
@@ -46,13 +46,13 @@ class Validator extends MainContainer
      */
     public function failed()
     {
-        $this->logger->info("Checking for errors in the form.");
+        // $this->logger->info("Checking for errors in the form.");
         
         if (!empty($this->errors)) {
-            $this->logger->warning("Encountered ". count($this->errors) ." in the form.");
+            // $this->logger->warning("Encountered ". count($this->errors) ." in the form.");
             return $this->errors;
         } else {
-            $this->logger->info("No errors found in the form.");
+            // $this->logger->info("No errors found in the form.");
         }
     }
 }
